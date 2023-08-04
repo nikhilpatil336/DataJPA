@@ -5,8 +5,6 @@ import com.example.SpringDataJPA.entities.Address;
 import com.example.SpringDataJPA.entities.Degree;
 import com.example.SpringDataJPA.entities.Office;
 import jakarta.persistence.*;
-import jakarta.validation.constraints.NotNull;
-import jakarta.validation.constraints.Size;
 import lombok.*;
 
 import java.util.List;
