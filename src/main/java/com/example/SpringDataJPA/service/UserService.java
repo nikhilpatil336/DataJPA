@@ -14,7 +14,7 @@ public interface UserService {
 
     User getUserById(int id);
 
-    List<User> getAllUsers();
+    List<User> getAllUsers(int pageNumber, int pageSize);
 
     List<User> getUserbyName(String firstName);
 }

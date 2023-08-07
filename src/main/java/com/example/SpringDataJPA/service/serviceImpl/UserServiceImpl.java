@@ -6,6 +6,9 @@ import com.example.SpringDataJPA.repositories.UserRepository;
 import com.example.SpringDataJPA.service.UserService;
 import jakarta.transaction.Transactional;
 import lombok.AllArgsConstructor;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import java.util.List;
 
@@ -49,8 +52,13 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public List<User> getAllUsers() {
-        List<User> temp = userRepository.findAll();
+    public List<User> getAllUsers(int pageNumber, int pageSize) {
+
+        Pageable p = PageRequest.of(pageNumber, pageSize);
+
+        Page<User> pageUser = userRepository.findAll(p);
+
+        List<User> temp = pageUser.getContent();
         return temp;
     }
 
