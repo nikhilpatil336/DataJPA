@@ -6,7 +6,7 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-@OpenAPIDefinition(info = @Info(title = "productAPI", version = "1.0", description = "this is openAPI"))
+//@OpenAPIDefinition(info = @Info(title = "productAPI", version = "1.0", description = "this is openAPI"))
 public class SpringDataJpaApplication {
 
 	public static void main(String[] args) {

@@ -2,11 +2,12 @@ package com.example.SpringDataJPA.controller;
 
 import com.example.SpringDataJPA.entities.User;
 import com.example.SpringDataJPA.service.UserService;
-import jakarta.validation.Valid;
+//import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
 import java.util.List;
 
 @RestController
@@ -37,8 +38,8 @@ public class UserController {
 
     @GetMapping()
     public ResponseEntity<List<User>> getAllUsers(@RequestParam(value = "pageNumber", defaultValue = "1", required = false
-    ) int pageNumber, @RequestParam(value = "pageSize", defaultValue = "1", required = false) int pageSize) {
-        List<User> userResponses = userService.getAllUsers(pageNumber-1, pageSize);
+    ) int pageNumber, @RequestParam(value = "pageSize", defaultValue = "10", required = false) int pageSize) {
+        List<User> userResponses = userService.getAllUsers(pageNumber, pageSize);
         return ResponseEntity.ok(userResponses);
     }
 

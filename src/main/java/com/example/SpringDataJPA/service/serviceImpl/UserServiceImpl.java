@@ -4,12 +4,14 @@ import com.example.SpringDataJPA.entities.User;
 import com.example.SpringDataJPA.exception.ResourceNotFoundException;
 import com.example.SpringDataJPA.repositories.UserRepository;
 import com.example.SpringDataJPA.service.UserService;
-import jakarta.transaction.Transactional;
+//import jakarta.transaction.Transactional;
 import lombok.AllArgsConstructor;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
+
+import javax.transaction.Transactional;
 import java.util.List;
 
 @Service
@@ -37,9 +39,9 @@ public class UserServiceImpl implements UserService {
         user.setUserId(userRequest.getUserId());
         user.setFirstName(userRequest.getFirstName());
         user.setLastName(userRequest.getLastName());
-        user.setDegree(userRequest.getDegree());
-        user.setAddress(userRequest.getAddress());
-        user.setOffices(userRequest.getOffices());
+//        user.setDegree(userRequest.getDegree());
+//        user.setAddress(userRequest.getAddress());
+//        user.setOffice(userRequest.getOffice());
         user.setAge(userRequest.getAge());
         user.setSalary(userRequest.getSalary());
 
@@ -54,7 +56,7 @@ public class UserServiceImpl implements UserService {
     @Override
     public List<User> getAllUsers(int pageNumber, int pageSize) {
 
-        Pageable p = PageRequest.of(pageNumber, pageSize);
+        Pageable p = PageRequest.of(pageNumber-1, pageSize);
 
         Page<User> pageUser = userRepository.findAll(p);
 

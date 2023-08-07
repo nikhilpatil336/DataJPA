@@ -4,9 +4,10 @@ package com.example.SpringDataJPA.responseDTO;
 import com.example.SpringDataJPA.entities.Address;
 import com.example.SpringDataJPA.entities.Degree;
 import com.example.SpringDataJPA.entities.Office;
-import jakarta.persistence.*;
+//import jakarta.persistence.*;
 import lombok.*;
 
+import javax.persistence.*;
 import java.util.List;
 
 @NoArgsConstructor

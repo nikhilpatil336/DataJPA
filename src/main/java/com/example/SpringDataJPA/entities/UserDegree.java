@@ -1,7 +1,9 @@
 package com.example.SpringDataJPA.entities;
 
-import jakarta.persistence.*;
+//import jakarta.persistence.*;
 import lombok.*;
+
+import javax.persistence.*;
 import java.util.Date;
 
 @Entity
@@ -18,11 +20,11 @@ public class UserDegree {
     private int id;
 
     @ManyToOne
-    @JoinColumn(name = "user_id")
+    //@JoinColumn(name = "user_id")
     private User user;
 
     @ManyToOne
-    @JoinColumn(name = "degree_id")
+    //@JoinColumn(name = "degree_id")
     private Degree degree;
 
     private Date issueDate;

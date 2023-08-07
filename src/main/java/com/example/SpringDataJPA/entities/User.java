@@ -1,19 +1,23 @@
 package com.example.SpringDataJPA.entities;
 
-import jakarta.persistence.*;
-import jakarta.validation.constraints.NotNull;
-import jakarta.validation.constraints.Size;
+//import jakarta.persistence.*;
+//import jakarta.validation.constraints.NotNull;
+//import jakarta.validation.constraints.Size;
 import lombok.*;
 
+import javax.persistence.*;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 import java.util.List;
 
-@Entity
+
 @NoArgsConstructor
 @AllArgsConstructor
 @Getter
 @Setter
 @Builder
-@Table(name = "user")
+@Entity
+@Table(name = "userss")
 public class User {
 
     @Id
@@ -31,17 +35,22 @@ public class User {
     @Column(name = "lastName")
     private String lastName;
 
-    @OneToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+    @OneToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL, mappedBy = "user")
     @NotNull
     private Address address;
 
     @OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
-    @Column(name = "degree")
+//    @Column(name = "degree")
     private List<Degree> degree;
 
-    @ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
-    @Column(name = "offices")
-    private List<Office> offices;
+//    @ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL, mappedBy = "users")
+//    @JoinTable(
+//            name = "user_office",
+//            joinColumns = @JoinColumn(name = "office_id"),
+//            inverseJoinColumns = @JoinColumn(name = "userId")
+//    )
+//   @Column(name = "office")
+//    private List<Office> office;
 
     @Column(name = "age")
     private int age;
