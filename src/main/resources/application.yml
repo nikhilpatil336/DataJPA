@@ -11,8 +11,8 @@ spring:
     username: root
     password: root
     driver-class-name: com.mysql.cj.jdbc.Driver
-#  flyway:
-#    locations=classpath: db/migration
+  flyway:
+    locations=classpath: db/migration
   jpa:
     hibernate:
       ddl-auto: update
