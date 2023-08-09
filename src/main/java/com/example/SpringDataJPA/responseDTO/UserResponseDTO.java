@@ -16,20 +16,19 @@ import java.util.List;
 @Setter
 @Builder
 public class UserResponseDTO {
-    private int UserResponseDTOId;
 
     private String firstName;
 
     private String lastName;
 
-    @OneToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-    private Address address;
+    //@OneToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+        private Address address;
 
-    @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-    private List<Degree> degree;
+        //@OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+        private List<Degree> degree;
 
-    @ManyToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-    private List<Office> office;
+        //@ManyToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+        private List<Office> office;
 
     private int age;
 

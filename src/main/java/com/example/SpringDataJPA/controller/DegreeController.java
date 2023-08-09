@@ -1,6 +1,5 @@
 package com.example.SpringDataJPA.controller;
 
-import com.example.SpringDataJPA.RequestDTO.CollectionDTO;
 import com.example.SpringDataJPA.RequestDTO.DegreeRequestDTO;
 import com.example.SpringDataJPA.entities.Degree;
 import com.example.SpringDataJPA.service.DegreeService;
@@ -26,7 +25,6 @@ public class DegreeController {
     {
         log.info("Inside create degree controller");
         System.out.println("degreerequestdto is "+degreeRequestDTO.getDegreeName());
-        //log.info("controller degreeDTO: ", degreeRequestDTO.t;
         return ResponseEntity.ok(degreeService.createDegree(degreeRequestDTO));
     }
 }

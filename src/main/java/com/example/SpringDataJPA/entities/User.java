@@ -20,7 +20,7 @@ import java.util.List;
 public class User {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "userId")
     private int userId;
 
@@ -34,15 +34,15 @@ public class User {
     @Column(name = "lastName", nullable = false)
     private String lastName;
 
-    @OneToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL, mappedBy = "user")
-    //@NotNull
-    private Address address;
+//    @OneToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL, mappedBy = "user")
+//    //@NotNull
+//    private Address address;
+//
+//    @OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL, mappedBy = "user")
+//    //@JoinColumn(name = "u_FK_ID")
+//    private List<Degree> Degrees;
 
-//    @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL, mappedBy = "user")
-//    //@Column(name = "degree")
-//    private List<UserDegree> userDegrees;
-
-    @ManyToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    @ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
     @JoinTable(
             name = "user_office",
             joinColumns = @JoinColumn(name = "userId"),

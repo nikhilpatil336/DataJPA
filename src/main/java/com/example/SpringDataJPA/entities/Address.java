@@ -1,9 +1,7 @@
 package com.example.SpringDataJPA.entities;
 
-//import jakarta.persistence.*;
-//import jakarta.validation.constraints.NotNull;
-//import jakarta.validation.constraints.Size;
 import lombok.*;
+import org.hibernate.engine.internal.Cascade;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;

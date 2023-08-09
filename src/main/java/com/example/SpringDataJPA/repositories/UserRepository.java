@@ -17,10 +17,10 @@ import java.util.List;
 public interface UserRepository extends JpaRepository<User, Integer> {
 
 
-    @Query("DELETE FROM User u WHERE u.firstName = :firstName")
-    @Modifying
-    @Transactional
-    void deleteUserByName(String firstName);
+//    @Query("DELETE FROM User u WHERE u.firstName = :firstName")
+//    @Modifying
+//    @Transactional
+//    void deleteUserByName(String firstName);
 
 
 //    @Modifying

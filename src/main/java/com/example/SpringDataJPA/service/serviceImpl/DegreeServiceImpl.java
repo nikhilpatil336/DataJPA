@@ -4,11 +4,11 @@ import com.example.SpringDataJPA.RequestDTO.DegreeRequestDTO;
 import com.example.SpringDataJPA.entities.Degree;
 import com.example.SpringDataJPA.entities.User;
 import com.example.SpringDataJPA.repositories.DegreeRepositories;
+import com.example.SpringDataJPA.repositories.UserRepository;
 import com.example.SpringDataJPA.service.DegreeService;
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.modelmapper.ModelMapper;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service
@@ -17,7 +17,23 @@ import org.springframework.stereotype.Service;
 public class DegreeServiceImpl implements DegreeService {
 
     private DegreeRepositories degreeRepositories;
+    private UserRepository userRepository;
     private ModelMapper mapper;
+
+    @Override
+    public Degree createDegree(DegreeRequestDTO degreeRequestDTO, User savedUser) {
+
+        log.info("Inside create degree service");
+        System.out.println("degreeDTO: "+ degreeRequestDTO.getDegreeName());
+
+        Degree degree = Degree.builder()
+                .degreeName(degreeRequestDTO.getDegreeName())
+                .user(savedUser)
+                .build();
+
+       return saveDegree(degree);
+
+    }
 
     @Override
     public Degree createDegree(DegreeRequestDTO degreeRequestDTO) {
@@ -25,12 +41,17 @@ public class DegreeServiceImpl implements DegreeService {
         log.info("Inside create degree service");
         System.out.println("degreeDTO: "+ degreeRequestDTO.getDegreeName());
 
-        //Degree degree = mapper.map(degreeRequestDTO, Degree.class);
-        Degree degree = Degree.builder().degreeName(degreeRequestDTO.getDegreeName()).build();
-        System.out.println("degree: "+ degree.getDegreeName());
+        Degree degree = Degree.builder()
+                .degreeName(degreeRequestDTO.getDegreeName())
+                .build();
 
-        Degree savedDegree = degreeRepositories.save(degree);
+        return saveDegree(degree);
 
-        return savedDegree;
     }
+
+
+    private Degree saveDegree(Degree degree){
+        return degreeRepositories.save(degree);
+    }
+
 }

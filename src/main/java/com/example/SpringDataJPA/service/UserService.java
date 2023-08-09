@@ -11,9 +11,9 @@ public interface UserService {
 
     User createUser(CollectionDTO collectionDTO);
 
-    String deleteUser(String firstName);
+    void deleteUser(int id);
 
-    void updateUser(int id, User userRequest);
+    void updateUser(int id, UserRequestDTO userRequest);
 
     User getUserById(int id);
 

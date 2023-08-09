@@ -1,17 +1,11 @@
 package com.example.SpringDataJPA.entities;
 
-//import jakarta.persistence.Entity;
-//import jakarta.persistence.GeneratedValue;
-//import jakarta.persistence.GenerationType;
-//import jakarta.persistence.Id;
-//import jakarta.validation.constraints.NotNull;
-//import jakarta.validation.constraints.Size;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.*;
+import org.hibernate.annotations.OnDelete;
+import org.hibernate.annotations.OnDeleteAction;
 
 import javax.persistence.*;
-import javax.validation.constraints.NotNull;
-import javax.validation.constraints.Size;
-import java.util.List;
 
 
 @NoArgsConstructor
@@ -30,11 +24,8 @@ public class Degree {
     //@Size(max = 10)
     private String degreeName;
 
-//    @ManyToOne(fetch = FetchType.LAZY)
-//    private User user;
-
-//    @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL, mappedBy = "degree")
-//    //@Column(name = "degree")
-//    private List<UserDegree> userDegrees;
+    @JsonIgnore
+    @ManyToOne(fetch = FetchType.EAGER)
+    private User user;
 }
 

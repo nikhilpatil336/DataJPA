@@ -1,8 +1,5 @@
 package com.example.SpringDataJPA.entities;
 
-//import jakarta.persistence.*;
-//import jakarta.validation.constraints.NotNull;
-//import jakarta.validation.constraints.Size;
 import lombok.*;
 
 import javax.persistence.*;
@@ -28,7 +25,7 @@ public class Office {
     //@Size(min = 2, max = 10)
     private String name;
 
-    @ManyToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL, mappedBy = "offices")
+    @ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL, mappedBy = "offices")
     private List<User> users;
 }
 

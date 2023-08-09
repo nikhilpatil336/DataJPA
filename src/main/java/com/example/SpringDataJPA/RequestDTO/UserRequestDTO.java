@@ -1,14 +1,6 @@
 package com.example.SpringDataJPA.RequestDTO;
 
-import com.example.SpringDataJPA.entities.Address;
-import com.example.SpringDataJPA.entities.Office;
-import com.example.SpringDataJPA.entities.UserDegree;
 import lombok.*;
-
-import javax.persistence.*;
-import javax.validation.constraints.NotNull;
-import javax.validation.constraints.Size;
-import java.util.List;
 
 @NoArgsConstructor
 @AllArgsConstructor

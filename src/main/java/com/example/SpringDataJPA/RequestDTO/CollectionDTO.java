@@ -16,6 +16,10 @@ public class CollectionDTO {
     private AddressRequestDTO addressRequestDTO;
 
     private List<OfficeRequestDTO> officeRequestDTO;
-//
-//    private List<DegreeRequestDTO> degreeRequestDTO;
+
+    private List<DegreeRequestDTO> degreeRequestDTOS;
+
+    //private List<DegreeRequestForCreateUserDTO> degreeRequestForCreateUserDTOS;
+
+    //private List<UserDegreeRequestDTO> userDegreeRequestDTO;
 }
