@@ -22,13 +22,13 @@ public class UserResponseDTO {
     private String lastName;
 
     //@OneToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-        private Address address;
-
-        //@OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-        private List<Degree> degree;
-
-        //@ManyToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-        private List<Office> office;
+//        private Address address;
+//
+//        //@OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+//        private List<Degree> degree;
+//
+//        //@ManyToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+//        private List<Office> office;
 
     private int age;
 

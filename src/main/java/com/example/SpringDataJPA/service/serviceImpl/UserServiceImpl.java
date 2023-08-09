@@ -14,7 +14,6 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
-import javax.transaction.Transactional;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -70,7 +69,7 @@ public class UserServiceImpl implements UserService {
 
     public void deleteUser(int id)
     {
-        User user = userRepository.findById(id).get();
+        User user = userRepository.findById(id).orElseThrow(() -> new ResourceNotFoundException("User do not exist"));
         List<Degree> degrees = degreeRepositories.findByUser(user);
         degrees.stream().forEach(x -> degreeRepositories.deleteById(x.getId()));
         userRepository.findById(id).orElseThrow(()-> new ResourceNotFoundException("user do not exist"));

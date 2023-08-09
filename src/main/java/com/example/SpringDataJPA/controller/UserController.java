@@ -32,9 +32,7 @@ public class UserController {
     public ResponseEntity<UserResponseDTO> createUser(@RequestBody CollectionDTO collectionDTO)
     {
         User userResponse = userService.createUser(collectionDTO);
-
         UserResponseDTO userResponseDTO = mapper.map(userResponse, UserResponseDTO.class);
-
         return ResponseEntity.ok(userResponseDTO);
     }
 
@@ -69,7 +67,7 @@ public class UserController {
 //        return ResponseEntity.ok(userResponse);
 //    }
 
-    @PutMapping("/{id}")
+    @PatchMapping("/{id}")
     public ResponseEntity<String> updateUser(@PathVariable int id, @Valid @RequestBody UserRequestDTO userRequest)
     {
         userService.updateUser(id, userRequest);
