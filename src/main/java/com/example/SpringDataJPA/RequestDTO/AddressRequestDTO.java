@@ -1,26 +1,22 @@
-package com.example.SpringDataJPA.entities;
+package com.example.SpringDataJPA.RequestDTO;
 
-//import jakarta.persistence.*;
-//import jakarta.validation.constraints.NotNull;
-//import jakarta.validation.constraints.Size;
+import com.example.SpringDataJPA.entities.User;
 import lombok.*;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
-@Entity
 @NoArgsConstructor
 @AllArgsConstructor
 @Getter
 @Setter
 @Builder
-@Table(name = "address")
-public class Address {
+public class AddressRequestDTO {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
+//    @Id
+//    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    //private int id;
 
     //@NotNull
     private int flatNo;
@@ -38,7 +34,7 @@ public class Address {
     //@NotNull
     private int pinCode;
 
-    @OneToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
-    @JoinColumn(name = "userId")
-    private User user;
+//    @OneToOne(fetch = FetchType.EAGER)
+//    @JoinColumn(name = "userId")
+//    private User user;
 }

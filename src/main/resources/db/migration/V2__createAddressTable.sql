@@ -1,4 +1,4 @@
-create table address (
+  create table address (
        id integer not null auto_increment,
         building_name varchar(10) not null,
         city varchar(255),
@@ -7,4 +7,4 @@ create table address (
         street_name varchar(10) not null,
         user_user_id integer,
         primary key (id)
-    )
+    ) 

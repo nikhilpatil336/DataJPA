@@ -11,24 +11,24 @@ import javax.validation.constraints.Size;
 import java.util.List;
 
 
-//@NoArgsConstructor
-//@AllArgsConstructor
-//@Data
-//@Builder
+@NoArgsConstructor
+@AllArgsConstructor
+@Data
+@Builder
 @Entity
 @Table(name = "offices")
 public class Office {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "office_id")
+    @Column(name = "officeId")
     private int id;
-//
-//    @NotNull
-//    @Size(min = 2, max = 10)
-//    private String name;
-//
-//    @ManyToMany(fetch = FetchType.LAZY)
-//    private List<User> users;
+
+    //@NotNull
+    //@Size(min = 2, max = 10)
+    private String name;
+
+    @ManyToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL, mappedBy = "offices")
+    private List<User> users;
 }
 

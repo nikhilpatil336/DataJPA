@@ -11,6 +11,7 @@ import lombok.*;
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
+import java.util.List;
 
 
 @NoArgsConstructor
@@ -20,12 +21,20 @@ import javax.validation.constraints.Size;
 @Entity
 @Table(name = "degree")
 public class Degree {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
-    @NotNull
-    @Size(max = 10)
+    //@NotNull
+    //@Size(max = 10)
     private String degreeName;
+
+//    @ManyToOne(fetch = FetchType.LAZY)
+//    private User user;
+
+//    @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL, mappedBy = "degree")
+//    //@Column(name = "degree")
+//    private List<UserDegree> userDegrees;
 }
 

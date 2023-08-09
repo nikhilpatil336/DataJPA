@@ -1,17 +1,21 @@
 package com.example.SpringDataJPA.controller;
 
+import com.example.SpringDataJPA.RequestDTO.*;
 import com.example.SpringDataJPA.entities.User;
 import com.example.SpringDataJPA.service.UserService;
 //import jakarta.validation.Valid;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import javax.transaction.Transactional;
 import javax.validation.Valid;
 import java.util.List;
 
 @RestController
 @RequestMapping("/users")
+@Slf4j
 public class UserController {
 
     @GetMapping("/hello")
@@ -23,9 +27,13 @@ public class UserController {
     private UserService userService;
 
     @PostMapping()
-    public ResponseEntity<User> createUser(@Valid @RequestBody User userRequest)
+    public ResponseEntity<User> createUser(@RequestBody CollectionDTO collectionDTO)
     {
-        User userResponse = userService.createUser(userRequest);
+
+        log.info("Inside create user controller");
+
+        User userResponse = userService.createUser(collectionDTO);
+
         return ResponseEntity.ok(userResponse);
     }
 

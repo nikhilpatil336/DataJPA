@@ -1,9 +1,8 @@
 package com.example.SpringDataJPA.entities;
 
-//import jakarta.persistence.*;
-//import jakarta.validation.constraints.NotNull;
-//import jakarta.validation.constraints.Size;
 import lombok.*;
+import org.hibernate.annotations.LazyCollection;
+import org.hibernate.annotations.LazyCollectionOption;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
@@ -17,45 +16,45 @@ import java.util.List;
 @Setter
 @Builder
 @Entity
-@Table(name = "userss")
+@Table(name = "users")
 public class User {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "userId")
     private int userId;
 
-    @NotNull
-    @Size(min = 2, max = 10)
-    @Column(name = "firstName")
+    //@NotNull
+    //@Size(min = 2, max = 10)
+    @Column(name = "firstName", nullable = false)
     private String firstName;
 
-    @NotNull
-    @Size(min = 2, max = 10)
-    @Column(name = "lastName")
+    //@NotNull
+    //@Size(min = 2, max = 10)
+    @Column(name = "lastName", nullable = false)
     private String lastName;
 
-    @OneToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL, mappedBy = "user")
-    @NotNull
+    @OneToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL, mappedBy = "user")
+    //@NotNull
     private Address address;
 
-    @OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
-//    @Column(name = "degree")
-    private List<Degree> degree;
+//    @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL, mappedBy = "user")
+//    //@Column(name = "degree")
+//    private List<UserDegree> userDegrees;
 
-//    @ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL, mappedBy = "users")
-//    @JoinTable(
-//            name = "user_office",
-//            joinColumns = @JoinColumn(name = "office_id"),
-//            inverseJoinColumns = @JoinColumn(name = "userId")
-//    )
-//   @Column(name = "office")
-//    private List<Office> office;
+    @ManyToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    @JoinTable(
+            name = "user_office",
+            joinColumns = @JoinColumn(name = "userId"),
+            inverseJoinColumns = @JoinColumn(name = "officeId")
+    )
+    @Column(name = "office")
+    private List<Office> offices;
 
     @Column(name = "age")
     private int age;
 
-    @NotNull
-    @Column(name = "salary")
+    //@NotNull
+    @Column(name = "salary", nullable = false)
     private double salary;
 }

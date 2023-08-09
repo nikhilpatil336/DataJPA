@@ -1,34 +1,32 @@
-package com.example.SpringDataJPA.entities;
+package com.example.SpringDataJPA.RequestDTO;
 
-//import jakarta.persistence.*;
+import com.example.SpringDataJPA.entities.Degree;
+import com.example.SpringDataJPA.entities.User;
 import lombok.*;
 
 import javax.persistence.*;
 import java.util.Date;
 
-
 @NoArgsConstructor
-@Entity
 @AllArgsConstructor
 @Getter
 @Setter
 @Builder
-@Table(name = "user_degree")
-public class UserDegree {
+public class UserDegreeRequestDTO {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+//    @Id
+//    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
 //    @ManyToOne
 //    @MapsId("userId")
 //    @JoinColumn(name = "userId")
-//    private User user;
-//
+    //private User user;
+
 //    @ManyToOne
 //    @MapsId("degreeId")
 //    @JoinColumn(name = "degreeId")
-//    private Degree degree;
+    //private Degree degree;
 
     private Date issueDate;
 

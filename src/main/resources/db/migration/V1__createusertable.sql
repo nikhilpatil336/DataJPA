@@ -1,4 +1,4 @@
-create table userss (
+ create table user (
        user_id integer not null auto_increment,
         age integer,
         first_name varchar(10) not null,
